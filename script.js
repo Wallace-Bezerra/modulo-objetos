@@ -1,41 +1,47 @@
-// Transforme o objeto abaixo em uma Constructor Function
-function Pessoa(nome, idade) {
+// Crie uma função construtora de Pessoas
+// Deve conter nome, sobrenome e idade
+// Crie um método no protótipo que retorne
+// o nome completo da pessoa
+
+Pessoa.prototype.mostrarNome = function () {
+  return `Seu nome completo: ${this.nome} ${this.sobrenome}`;
+}
+
+
+function Pessoa(nome, sobrenome, idade) {
   this.nome = nome;
+  this.sobrenome = sobrenome;
   this.idade = idade;
-  this.andar = () => {
-    console.log(`${this.nome} andou`);
-  }
 }
 
-// Crie 3 pessoas, João - 20 anos,
-// Maria - 25 anos, Bruno - 15 anos
-const pessoa = new Pessoa("João", 20);
-const pessoa2 = new Pessoa("Maria", 25);
-const pessoa3 = new Pessoa("Bruno", 15);
+const p1 = new Pessoa("wallace", "bezerra", 20);
 
 
-// Crie uma Constructor Function (Dom) para manipulação
-// de listas de elementos do dom. Deve conter as seguintes
-// propriedades e métodos:
-//
-// elements, retorna NodeList com os elementos selecionados
-// addClass(classe), adiciona a classe a todos os elementos
-// removeClass(classe), remove a classe a todos os elementos
+// Liste os métodos acessados por 
+// dados criados com NodeList,
+// HTMLCollection, Document
 
-function Dom(seletor) {
-  this.seletor = seletor
-  this.elements = document.querySelectorAll(this.seletor);
+const dom = document.querySelectorAll("li");
+dom.forEach
+dom.values
 
-  this.addClass = (classe) => {
-    this.elements.forEach((item) => {
-      item.classList.add(classe);
-    })
-  }
-  this.removeClass = (classe) => {
-    this.elements.forEach((item) => {
-      item.classList.remove(classe);
-    })
-  }
-}
+const dom2 = document.getElementsByTagName("li");
+dom2.item
+dom2.namedItem
 
-const e1 = new Dom('li');
+
+// Liste os construtores dos dados abaixo
+const li = document.querySelector('li');
+const ul = document.querySelector('ul');
+
+li; // html li element
+li.click; // function
+li.innerText; // string
+li.value; // number
+li.hidden; // boolean
+li.offsetLeft; // number
+li.click(); //nao tem
+
+// Qual o construtor do dado abaixo:
+li.hidden.constructor.name;
+// string
