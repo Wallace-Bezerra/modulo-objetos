@@ -124,3 +124,41 @@ const valorTotal = compras.reduce((acc, atual) => {
 }, 0)
 
 console.log(valorTotal);
+
+
+
+function porcentagem(a, b) {
+    const porcento = (b * 100) / a;
+    return porcento;
+}
+
+console.log(porcentagem(50, 25));
+
+
+function filtroObj(obj) {
+    const teste = Object.entries(obj)
+    const novaNew = teste.map((item) => {
+
+        return Object.assign({}, item.filter((item2, index, arr) => {
+            // console.log(item2)
+            // return item2;
+            if (item2) {
+                // console.log(item2)
+                return item2
+            }
+        }))
+    })
+
+
+    return novaNew;
+}
+
+const result = filtroObj({ nome: "Wallace", idade: 20, cidade: null, pais: "" });
+console.log(result)
+
+const li = document.querySelectorAll("li");
+console.log(li);
+const filtro = Array.prototype.filter.call(li, (item) => {
+    return (item.innerText === "teste3");
+})
+console.log(filtro);
